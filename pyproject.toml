@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "course-project-3-lotsmanova"
+version = "0.1.0"
+description = ""
+authors = ["Violetta <lotsmanovavioletta@gmail.com>"]
+readme = "README.md"
+packages = [{include = "course_project_3_lotsmanova"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.3.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
