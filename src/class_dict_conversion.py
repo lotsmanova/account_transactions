@@ -2,7 +2,7 @@ class DictionaryConversion:
     def __init__(self, dict_operation):
         '''инициализация атрибутов класса: дата, номер карты, номер счета'''
         self.date = dict_operation['date']
-        self.card = dict_operation['from']
+        self.card = dict_operation.get('from')
         self.score = dict_operation['to']
 
 
@@ -24,8 +24,9 @@ class DictionaryConversion:
         '''
         преобразование номера карты к виду XXXX XX** **** XXXX
         '''
-
-        if "Счет" in self.card:
+        if self.card == None :
+            return f"Номер счета не задан"
+        elif "Счет" in self.card:
             num_card = self.card[-20:]
             return f'{self.card[:-20]}{num_card[:4]} {num_card[4:6]}** **** **** {num_card[-4:]}'
         else:
