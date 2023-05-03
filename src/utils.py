@@ -1,44 +1,24 @@
 from json import load
-from datetime import datetime
-from path import PATH_JSON
+# from file_path import PATH_JSON
+import os.path
 
 def json_read():
     '''
     преобразует json в список словарей python
     '''
+    PATH_JSON = os.path.join(os.path.dirname(__file__), "operations.json")
     with open(PATH_JSON, 'r', encoding="utf-8") as file:
         list_from_file = load(file)
         return list_from_file
 
 
-def sorted_by_date(list_from_json):
+def filtering_dict(sorted_list):
     '''
-    объединяет словари для одной операции, возвращает отсортированный по дате список словарей
+    возвращает отсортированный по дате список
+    с 5 последними выполненными операциями
     '''
-    # создаем пустой список
-    upgrade_list = []
-    # итерируем по длине списка со словарями
-    for i in range(len(list_from_json)):
-    # создаем пустой словарь
-        d = {}
-    # добавляем в словарь д словарь с 0 индексом
-        d.update(list_from_json[i - 1])
-        if i < len(list_from_json):
-    # добавляем в словарь д словарь с индексом +1
-            d.update(list_from_json[i])
-    # добавляем полученный словарь в список
-        upgrade_list.append(d)
-    # сортируем полученный список от большего к меньшему
-    sorted_list = sorted(upgrade_list, key=lambda x: datetime.strptime(x['date'], '%Y-%m-%dT%H:%M:%S.%f'), reverse=True)
-    return sorted_list
-
-
-def executed_dict(sorted_list):
-    '''
-    возвращает список с последними выполненными операциями из 5 словарей
-    '''
-    list_executed = []
-    for d in sorted_list:
-        if d['state'].lower() == 'executed':
-            list_executed.append(d)
-    return list_executed[:5]
+    #фильтрация списка по "executed"
+    list_executed = [item for item in sorted_list if item.get('state') == 'EXECUTED']
+    #сортировка по дате
+    sorted_list = sorted(list_executed, key=lambda x: x.get('date'), reverse=True)
+    return sorted_list[:5]
