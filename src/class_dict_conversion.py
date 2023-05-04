@@ -25,10 +25,10 @@ class DictionaryConversion:
         преобразование номера карты к виду XXXX XX** **** XXXX
         '''
         if self.card == None :
-            return f"Номер счета не задан"
+            return ""
         elif "Счет" in self.card:
-            num_card = self.card[-20:]
-            return f'{self.card[:-20]}{num_card[:4]} {num_card[4:6]}** **** **** {num_card[-4:]}'
+            num_card = self.card[-4:]
+            return f'{self.card[:-20]}**{num_card}'
         else:
             num_card = self.card[-16:]
             return f'{self.card[:-16]}{num_card[:4]} {num_card[4:6]}** **** {num_card[-4:]}'
