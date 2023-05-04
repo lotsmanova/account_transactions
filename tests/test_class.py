@@ -45,11 +45,11 @@ def test_formatted_1(fix_dict_con_1):
 
 def test_formatted_2(fix_dict_con_2):
   assert fix_dict_con_2.formatted_date() == '26.11.2019'
-  assert fix_dict_con_2.formatted_num_card() == 'Номер счета не задан'
+  assert fix_dict_con_2.formatted_num_card() == ''
   assert fix_dict_con_2.formatted_num_score() == 'Visa Platinum **5229'
 
 
 def test_formatted_3(fix_dict_con_3):
   assert fix_dict_con_3.formatted_date() == '01.08.2018'
-  assert fix_dict_con_3.formatted_num_card() == 'Счет 7510 68** **** **** 6952'
+  assert fix_dict_con_3.formatted_num_card() == 'Счет **6952'
   assert fix_dict_con_3.formatted_num_score() == 'Счет **9589'
