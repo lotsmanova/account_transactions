@@ -12,7 +12,7 @@ def main():
     #вывод
         print(
             f'''{dict_conversion.formatted_date()} {dict_info["description"]}
-{dict_conversion.formatted_num_card()} -> {dict_conversion.formatted_num_score()}
+{dict_conversion.formatted_num_card()}{dict_conversion.formatted_num_score()}
 {dict_info["operationAmount"]["amount"]} {dict_info["operationAmount"]["currency"]["name"]}\n'''
 )
 

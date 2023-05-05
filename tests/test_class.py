@@ -39,7 +39,7 @@ def fix_dict_con_3():
 
 def test_formatted_1(fix_dict_con_1):
   assert fix_dict_con_1.formatted_date() == '26.08.2022'
-  assert fix_dict_con_1.formatted_num_card() == 'Visa Platinum 8990 92** **** 5229'
+  assert fix_dict_con_1.formatted_num_card() == 'Visa Platinum 8990 92** **** 5229 -> '
   assert fix_dict_con_1.formatted_num_score() == 'Счет **9589'
 
 
@@ -51,5 +51,5 @@ def test_formatted_2(fix_dict_con_2):
 
 def test_formatted_3(fix_dict_con_3):
   assert fix_dict_con_3.formatted_date() == '01.08.2018'
-  assert fix_dict_con_3.formatted_num_card() == 'Счет **6952'
+  assert fix_dict_con_3.formatted_num_card() == 'Счет **6952 -> '
   assert fix_dict_con_3.formatted_num_score() == 'Счет **9589'
