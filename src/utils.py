@@ -1,12 +1,11 @@
 from json import load
-# from file_path import PATH_JSON
-import os.path
+from src.path_file import PATH_JSON
+
 
 def json_read():
     '''
     преобразует json в список словарей python
     '''
-    PATH_JSON = os.path.join(os.path.dirname(__file__), "operations.json")
     with open(PATH_JSON, 'r', encoding="utf-8") as file:
         list_from_file = load(file)
         return list_from_file
